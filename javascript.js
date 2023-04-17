@@ -57,7 +57,6 @@ function finishTask(missionCard, paragraph) {
       h4.style.color = "crimson";
       h4.innerHTML = "✘";
       viClicked = false;
-
       return;
     } else {
       paragraph.style.textDecoration = "none";
@@ -94,10 +93,8 @@ function editTask(missionCard) {
   p.setAttribute("onclick", "editLocal(this)");
   saveData(container);
 }
-
 function editLocal(p) {
   const paragraph = p.parentElement.children[1];
-
   paragraph.contentEditable = true;
   paragraph.focus();
   p.innerHTML = "💾";
@@ -111,7 +108,6 @@ function editLocal(p) {
   }
   saveData(container);
 }
-
 function missionAdd(e, btnTask) {
   const paragraph = document.createElement("p");
   const missionCard = document.createElement("div");
