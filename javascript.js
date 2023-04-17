@@ -3,6 +3,7 @@ const addValue = document.getElementById("mission");
 const warning = document.getElementById("warning");
 const container = document.getElementById("container");
 const delAll = document.getElementById("delAll");
+let editClicked = true;
 function setFocus() {
   mission.focus();
 }
@@ -90,22 +91,24 @@ function editTask(missionCard) {
   p.innerHTML = "✒️";
   missionCard.appendChild(p);
   p.style.color = "white";
-  p.setAttribute("onclick", "test()");
-  p.onclick = function test() {
-    let editClicked = true;
-    paragraph.contentEditable = true;
-    paragraph.focus();
-    p.innerHTML = "💾";
-    if (editClicked) {
-      editClicked = false;
-      return;
-    } else {
-      p.innerHTML = "✒️";
-      paragraph.contentEditable = false;
-      editClicked = true;
-    }
-  };
+  p.setAttribute("onclick", "editLocal(this)");
+  saveData(container);
+}
 
+function editLocal(p) {
+  const paragraph = p.parentElement.children[1];
+
+  paragraph.contentEditable = true;
+  paragraph.focus();
+  p.innerHTML = "💾";
+  if (editClicked) {
+    editClicked = false;
+    return;
+  } else {
+    p.innerHTML = "✒️";
+    paragraph.contentEditable = false;
+    editClicked = true;
+  }
   saveData(container);
 }
 
