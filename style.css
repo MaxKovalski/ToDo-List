@@ -1,0 +1,129 @@
+body {
+  background-color: rgb(18, 7, 34);
+}
+.taskCreate {
+  display: flex;
+
+  position: relative;
+}
+.addTask {
+  position: absolute;
+
+  right: 10%;
+  bottom: 3%;
+  height: 60px;
+  width: 100px;
+  margin-left: 20px;
+  color: white;
+  background-color: transparent;
+  border-radius: 15px;
+  border: 2px solid #200648 !important;
+  transition: 0.3s ease-in-out;
+}
+.addTask:hover {
+  border: 2px solid #430c94 !important;
+  transform: scale(1.3);
+}
+
+.mainInput {
+  margin: 0 auto;
+  width: 600px;
+  height: 60px;
+  font-weight: bold;
+  font-size: 30px;
+  outline: none;
+  border: 2px solid #200648 !important;
+  border-radius: 15px;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.87);
+  padding-left: 10px;
+}
+.mainInput:focus {
+  background-color: transparent;
+  border: 2px solid #430c94 !important;
+}
+.mainInput::placeholder {
+  text-align: center;
+}
+.task {
+  font-size: 30px;
+  display: flex;
+  border: 2px solid #200648 !important;
+  border-radius: 15px;
+  width: 600px;
+  height: 60px;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  transition: 0.6s;
+}
+.task:hover {
+  width: 650px;
+  height: 65px;
+  border: 2px solid #430c94 !important;
+}
+#warning {
+  margin-top: 5px;
+  text-align: center;
+  color: white;
+}
+.removeTask {
+  flex-wrap: wrap;
+  cursor: pointer;
+  margin-right: 20px;
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+.removeTask:hover {
+  text-shadow: crimson 1px 0 20px;
+  color: crimson;
+  transform: scale(1.4);
+}
+.finishTask {
+  margin-left: 10px;
+  transition: 0.3s ease-in-out;
+  color: white;
+}
+.finishTask:hover {
+  cursor: pointer;
+  color: green;
+  transform: scale(1.4);
+}
+.editTask {
+  margin-left: auto;
+  margin-right: 10px;
+}
+.editTask:hover {
+  cursor: pointer;
+  font-size: 40px;
+  transition: 0.3s;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+p {
+  color: rgba(255, 255, 255, 0.87);
+  margin-left: 10px;
+}
+
+.delBtn {
+  margin: 0 auto;
+  margin-top: 30px;
+  display: flex;
+  color: white;
+  background-color: rgba(220, 20, 60, 0.622);
+  border-radius: 15px;
+  border: 2px solid white;
+  padding: 10px 20px;
+  display: none;
+}
+.delBtn:hover {
+  padding: 15px 25px;
+  transition: 0.2s;
+  cursor: pointer;
+  color: rgba(220, 20, 60, 0.622);
+  background-color: transparent;
+  border: 2px solid rgba(220, 20, 60, 0.622);
+}
