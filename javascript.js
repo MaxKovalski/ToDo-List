@@ -114,7 +114,7 @@ function missionAdd(e, btnTask) {
   const missionCard = document.createElement("div");
   if (e.keyCode == "13" || btnTask) {
     finishTask(missionCard, paragraph);
-    if (addValue.value.trim().length < 5) {
+    if (addValue.value.trim().length <= 4) {
       const shakeThat = [
         { transform: "rotate(0deg)" },
         { transform: "rotate(5deg)" },
