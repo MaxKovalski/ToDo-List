@@ -4,6 +4,7 @@ const warning = document.getElementById("warning");
 const container = document.getElementById("container");
 const delAll = document.getElementById("delAll");
 let editClicked = true;
+let viClicked = true;
 function setFocus() {
   mission.focus();
 }
@@ -37,52 +38,52 @@ function addTask(paragraph, missionCard) {
   addValue.value = "";
   warning.innerHTML = "";
   missionCard.appendChild(paragraph);
+
   if (counter == 2) {
     delAll.style.display = "block";
   }
   counterRefresh();
 }
-function finishTask(missionCard, paragraph) {
-  let viClicked = true;
+function finishTask(missionCard) {
   const h4 = document.createElement("h4");
   let vi = document.createElement("h4");
   vi.classList.add("finishTask");
   vi.innerHTML = "✓";
   missionCard.appendChild(vi);
-  vi.addEventListener("click", () => {
-    if (viClicked) {
-      paragraph.style.textDecoration = "line-through";
-      paragraph.style.color = "grey";
-      vi.style.color = "green";
-      h4.style.color = "crimson";
-      h4.innerHTML = "✘";
-      viClicked = false;
-      return;
-    } else {
-      paragraph.style.textDecoration = "none";
-      paragraph.style.color = "rgba(255, 255, 255, 0.87)";
-      vi.style.color = "white";
-      h4.style.color = "white";
-      h4.innerHTML = "✗";
-      viClicked = true;
-    }
+  vi.setAttribute("onclick", "finishLocal(this)");
+}
+function finishLocal(vi) {
+  const paragraph = vi.parentElement.children[1];
+  if (viClicked) {
+    paragraph.style.textDecoration = "line-through";
+    paragraph.style.color = "grey";
+    vi.style.color = "green";
+    viClicked = false;
     saveData(container);
-  });
+    return;
+  } else {
+    paragraph.style.textDecoration = "none";
+    paragraph.style.color = "rgba(255, 255, 255, 0.87)";
+    vi.style.color = "white";
+    viClicked = true;
+    saveData(container);
+  }
 }
 function removeTask(missionCard) {
-  let h4 = missionCard.querySelector(".removeTask");
-  if (!h4) {
-    h4 = document.createElement("h4");
-    h4.classList.add("removeTask");
-    h4.innerHTML = "✗";
-    missionCard.appendChild(h4);
-    h4.setAttribute("onclick", "removeTask(this.parentElement)");
+  h4 = document.createElement("h4");
+  h4.classList.add("removeTask");
+  h4.innerHTML = "✗";
+  missionCard.appendChild(h4);
+  h4.setAttribute("onclick", "removeLocal(this.parentElement)");
+}
+function removeLocal(missionCard) {
+  counter--;
+  missionCard.remove();
+  counterRefresh();
+  saveData(container);
+  if (counter == 1) {
+    delAll.style.display = "none";
   }
-  h4.addEventListener("click", () => {
-    missionCard.remove();
-    counterRefresh();
-    saveData(container);
-  });
 }
 function editTask(missionCard) {
   let p = document.createElement("h4");
@@ -113,7 +114,6 @@ function missionAdd(e, btnTask) {
   const missionCard = document.createElement("div");
   if (e.keyCode == "13" || btnTask) {
     finishTask(missionCard, paragraph);
-
     if (addValue.value.trim().length <= 5) {
       const shakeThat = [
         { transform: "rotate(0deg)" },
