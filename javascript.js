@@ -1,10 +1,12 @@
 let counter = 0;
+let editClicked = true;
+let viClicked = true;
 const addValue = document.getElementById("mission");
 const warning = document.getElementById("warning");
 const container = document.getElementById("container");
 const delAll = document.getElementById("delAll");
-let editClicked = true;
-let viClicked = true;
+const select = document.getElementById("taskSelect1");
+const select1 = document.getElementById("taskSelect2");
 function setFocus() {
   mission.focus();
 }
@@ -33,15 +35,18 @@ restoreData();
 function addTask(paragraph, missionCard) {
   counter++;
   missionCard.classList.add("task");
+  if (select.checked) {
+    missionCard.style.setProperty("border-color", "red", "important");
+  }
   paragraph.innerHTML = `<span class = 'spanCount'>${counter}</span> . ${addValue.value}`;
   container.appendChild(missionCard);
   addValue.value = "";
   warning.innerHTML = "";
   missionCard.appendChild(paragraph);
-
   if (counter == 2) {
     delAll.style.display = "block";
   }
+
   counterRefresh();
 }
 function finishTask(missionCard) {
@@ -135,6 +140,7 @@ function missionAdd(e, btnTask) {
   }
   editTask(missionCard, paragraph);
   removeTask(missionCard);
+
   saveData(container);
 }
 function DeleteAll() {

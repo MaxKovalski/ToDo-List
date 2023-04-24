@@ -15,9 +15,16 @@
     <div class="container">
         <h1>Track Your Tasks</h1>
         <div class="taskCreate">
+            <div class="test">
+                <input type="radio" id="taskSelect1" name="taskSelect" value="important" />
+                <label for="taskSelect1">Important</label>
+                <input type="radio" id="taskSelect2" name="taskSelect" value="task" checked="checked" />
+                <label for="taskSelect2">Task</label>
+            </div>
             <input class="mainInput" autocomplete="off" id="mission" type="text" placeholder="What needs to be done?"
                 onkeydown="missionAdd(event)">
             <button class="addTask" onclick="missionAdd(event,true)">Add</button>
+            <div class="repair-center"></div>
         </div>
         <div id="warning"></div>
         <br>
