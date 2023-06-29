@@ -14,7 +14,7 @@ Track Your Tasks is a simple task tracking application that allows you to keep t
 
 You can try out the application by visiting the https://maxkovalski.github.io/ToDo-List/
 
-##Usage
+## Usage
 
 1.Enter the task description in the input field.
 2.Select the priority level (Important or Task) using the radio buttons.
@@ -24,12 +24,12 @@ You can try out the application by visiting the https://maxkovalski.github.io/To
 6.To delete a task, click on the delete icon (cross) next to the task.
 7.To delete all tasks, click the "Delete All" button.
 
-##Technologies Used
+## Technologies Used
 
 •HTML
 •CSS
 •JavaScript
 
-##Contributing
+## Contributing
 
 Contributions are welcome! If you find any bugs or want to add new features, feel free to open an issue or submit a pull request.
